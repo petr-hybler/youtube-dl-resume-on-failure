@@ -18,7 +18,7 @@ mapfile -t array < <( youtube-dl -o "%(playlist)s/%(chapter_number)s %(chapter)s
 var=$(echo ${array[-2]} | cut -d'/' -f 3 | cut -d'.' -f 1)
 
 # recursively call again the javascript
-#   if the scripts ends with an error, the $var will contain a number of the last chapter processed (error)
+#   if the script ends with an error, the $var will contain a number of the last chapter processed (error)
 #   otherwise, it will contain some random string based on the final message (= finished)
 if [[ $var =~ $REGEX ]]
 then
