@@ -12,7 +12,7 @@ CHAPTER=${1:-1}
 echo "Download is starting with the chapter $CHAPTER ... "
 
 # map the output in the array
-mapfile -t array < <( youtube-dl -o "%(playlist)s/%(chapter_number)s %(chapter)s/%(playlist_index)s. %(title)s.%(ext)s" --cookies ./cookies.txt $URL --playlist-start $CHAPTER )
+mapfile -t array < <( youtube-dl -i -o "%(playlist)s/%(chapter_number)s %(chapter)s/%(playlist_index)s. %(title)s.%(ext)s" --cookies ./cookies.txt $URL --playlist-start $CHAPTER )
 
 # check the error
 var=$(echo ${array[-2]} | cut -d'/' -f 3 | cut -d'.' -f 1)
